@@ -29,10 +29,6 @@ Partial Class Form1
         Dim Jenis_kelaminLabel As System.Windows.Forms.Label
         Dim Tgl_lahirLabel As System.Windows.Forms.Label
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(Form1))
-        Me.AkademisDataSet = New WindowsApp1.akademisDataSet()
-        Me.MahasiswaBindingSource = New System.Windows.Forms.BindingSource(Me.components)
-        Me.MahasiswaTableAdapter = New WindowsApp1.akademisDataSetTableAdapters.mahasiswaTableAdapter()
-        Me.TableAdapterManager = New WindowsApp1.akademisDataSetTableAdapters.TableAdapterManager()
         Me.MahasiswaBindingNavigator = New System.Windows.Forms.BindingNavigator(Me.components)
         Me.BindingNavigatorAddNewItem = New System.Windows.Forms.ToolStripButton()
         Me.BindingNavigatorCountItem = New System.Windows.Forms.ToolStripLabel()
@@ -53,29 +49,40 @@ Partial Class Form1
         Me.Jenis_kelaminComboBox = New System.Windows.Forms.ComboBox()
         Me.Tgl_lahirDateTimePicker = New System.Windows.Forms.DateTimePicker()
         Me.MahasiswaDataGridView = New System.Windows.Forms.DataGridView()
+        Me.ToolStripButton2 = New System.Windows.Forms.ToolStripButton()
         Me.DataGridViewTextBoxColumn1 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.DataGridViewTextBoxColumn2 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.DataGridViewTextBoxColumn3 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.DataGridViewTextBoxColumn4 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.DataGridViewTextBoxColumn5 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.ToolStripButton2 = New System.Windows.Forms.ToolStripButton()
+        Me.MahasiswaBindingSource = New System.Windows.Forms.BindingSource(Me.components)
+        Me.AkademisDataSet = New WindowsApp1.akademisDataSet()
+        Me.MahasiswaTableAdapter = New WindowsApp1.akademisDataSetTableAdapters.mahasiswaTableAdapter()
+        Me.TableAdapterManager = New WindowsApp1.akademisDataSetTableAdapters.TableAdapterManager()
+        Me.FillByNimNamaToolStrip = New System.Windows.Forms.ToolStrip()
+        Me.NimToolStripLabel = New System.Windows.Forms.ToolStripLabel()
+        Me.NimToolStripTextBox = New System.Windows.Forms.ToolStripTextBox()
+        Me.NamaToolStripLabel = New System.Windows.Forms.ToolStripLabel()
+        Me.NamaToolStripTextBox = New System.Windows.Forms.ToolStripTextBox()
+        Me.FillByNimNamaToolStripButton = New System.Windows.Forms.ToolStripButton()
         NimLabel = New System.Windows.Forms.Label()
         NamaLabel = New System.Windows.Forms.Label()
         AngkatanLabel = New System.Windows.Forms.Label()
         Jenis_kelaminLabel = New System.Windows.Forms.Label()
         Tgl_lahirLabel = New System.Windows.Forms.Label()
-        CType(Me.AkademisDataSet, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.MahasiswaBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.MahasiswaBindingNavigator, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.MahasiswaBindingNavigator.SuspendLayout()
         CType(Me.AngkatanNumericUpDown, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.MahasiswaDataGridView, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.MahasiswaBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.AkademisDataSet, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.FillByNimNamaToolStrip.SuspendLayout()
         Me.SuspendLayout()
         '
         'NimLabel
         '
         NimLabel.AutoSize = True
-        NimLabel.Location = New System.Drawing.Point(12, 47)
+        NimLabel.Location = New System.Drawing.Point(12, 64)
         NimLabel.Name = "NimLabel"
         NimLabel.Size = New System.Drawing.Size(26, 13)
         NimLabel.TabIndex = 1
@@ -84,7 +91,7 @@ Partial Class Form1
         'NamaLabel
         '
         NamaLabel.AutoSize = True
-        NamaLabel.Location = New System.Drawing.Point(12, 73)
+        NamaLabel.Location = New System.Drawing.Point(12, 90)
         NamaLabel.Name = "NamaLabel"
         NamaLabel.Size = New System.Drawing.Size(36, 13)
         NamaLabel.TabIndex = 3
@@ -93,7 +100,7 @@ Partial Class Form1
         'AngkatanLabel
         '
         AngkatanLabel.AutoSize = True
-        AngkatanLabel.Location = New System.Drawing.Point(12, 96)
+        AngkatanLabel.Location = New System.Drawing.Point(12, 113)
         AngkatanLabel.Name = "AngkatanLabel"
         AngkatanLabel.Size = New System.Drawing.Size(55, 13)
         AngkatanLabel.TabIndex = 5
@@ -102,7 +109,7 @@ Partial Class Form1
         'Jenis_kelaminLabel
         '
         Jenis_kelaminLabel.AutoSize = True
-        Jenis_kelaminLabel.Location = New System.Drawing.Point(12, 125)
+        Jenis_kelaminLabel.Location = New System.Drawing.Point(12, 142)
         Jenis_kelaminLabel.Name = "Jenis_kelaminLabel"
         Jenis_kelaminLabel.Size = New System.Drawing.Size(70, 13)
         Jenis_kelaminLabel.TabIndex = 7
@@ -111,33 +118,11 @@ Partial Class Form1
         'Tgl_lahirLabel
         '
         Tgl_lahirLabel.AutoSize = True
-        Tgl_lahirLabel.Location = New System.Drawing.Point(12, 153)
+        Tgl_lahirLabel.Location = New System.Drawing.Point(12, 170)
         Tgl_lahirLabel.Name = "Tgl_lahirLabel"
         Tgl_lahirLabel.Size = New System.Drawing.Size(43, 13)
         Tgl_lahirLabel.TabIndex = 9
         Tgl_lahirLabel.Text = "tgl lahir:"
-        '
-        'AkademisDataSet
-        '
-        Me.AkademisDataSet.DataSetName = "akademisDataSet"
-        Me.AkademisDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
-        '
-        'MahasiswaBindingSource
-        '
-        Me.MahasiswaBindingSource.DataMember = "mahasiswa"
-        Me.MahasiswaBindingSource.DataSource = Me.AkademisDataSet
-        '
-        'MahasiswaTableAdapter
-        '
-        Me.MahasiswaTableAdapter.ClearBeforeFill = True
-        '
-        'TableAdapterManager
-        '
-        Me.TableAdapterManager.BackupDataSetBeforeUpdate = False
-        Me.TableAdapterManager.krsTableAdapter = Nothing
-        Me.TableAdapterManager.mahasiswaTableAdapter = Me.MahasiswaTableAdapter
-        Me.TableAdapterManager.matkulTableAdapter = Nothing
-        Me.TableAdapterManager.UpdateOrder = WindowsApp1.akademisDataSetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete
         '
         'MahasiswaBindingNavigator
         '
@@ -153,7 +138,7 @@ Partial Class Form1
         Me.MahasiswaBindingNavigator.MovePreviousItem = Me.BindingNavigatorMovePreviousItem
         Me.MahasiswaBindingNavigator.Name = "MahasiswaBindingNavigator"
         Me.MahasiswaBindingNavigator.PositionItem = Me.BindingNavigatorPositionItem
-        Me.MahasiswaBindingNavigator.Size = New System.Drawing.Size(800, 25)
+        Me.MahasiswaBindingNavigator.Size = New System.Drawing.Size(808, 25)
         Me.MahasiswaBindingNavigator.TabIndex = 0
         Me.MahasiswaBindingNavigator.Text = "BindingNavigator1"
         '
@@ -209,7 +194,6 @@ Partial Class Form1
         '
         Me.BindingNavigatorPositionItem.AccessibleName = "Position"
         Me.BindingNavigatorPositionItem.AutoSize = False
-        Me.BindingNavigatorPositionItem.Font = New System.Drawing.Font("Segoe UI", 9.0!)
         Me.BindingNavigatorPositionItem.Name = "BindingNavigatorPositionItem"
         Me.BindingNavigatorPositionItem.Size = New System.Drawing.Size(50, 23)
         Me.BindingNavigatorPositionItem.Text = "0"
@@ -263,7 +247,7 @@ Partial Class Form1
         'NimTextBox
         '
         Me.NimTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.MahasiswaBindingSource, "nim", True))
-        Me.NimTextBox.Location = New System.Drawing.Point(88, 44)
+        Me.NimTextBox.Location = New System.Drawing.Point(88, 61)
         Me.NimTextBox.Name = "NimTextBox"
         Me.NimTextBox.Size = New System.Drawing.Size(200, 20)
         Me.NimTextBox.TabIndex = 2
@@ -271,7 +255,7 @@ Partial Class Form1
         'NamaTextBox
         '
         Me.NamaTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.MahasiswaBindingSource, "nama", True))
-        Me.NamaTextBox.Location = New System.Drawing.Point(88, 70)
+        Me.NamaTextBox.Location = New System.Drawing.Point(88, 87)
         Me.NamaTextBox.Name = "NamaTextBox"
         Me.NamaTextBox.Size = New System.Drawing.Size(200, 20)
         Me.NamaTextBox.TabIndex = 4
@@ -279,7 +263,7 @@ Partial Class Form1
         'AngkatanNumericUpDown
         '
         Me.AngkatanNumericUpDown.DataBindings.Add(New System.Windows.Forms.Binding("Value", Me.MahasiswaBindingSource, "angkatan", True))
-        Me.AngkatanNumericUpDown.Location = New System.Drawing.Point(88, 96)
+        Me.AngkatanNumericUpDown.Location = New System.Drawing.Point(88, 113)
         Me.AngkatanNumericUpDown.Maximum = New Decimal(New Integer() {9999, 0, 0, 0})
         Me.AngkatanNumericUpDown.Name = "AngkatanNumericUpDown"
         Me.AngkatanNumericUpDown.Size = New System.Drawing.Size(200, 20)
@@ -291,7 +275,7 @@ Partial Class Form1
         Me.Jenis_kelaminComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.Jenis_kelaminComboBox.FormattingEnabled = True
         Me.Jenis_kelaminComboBox.Items.AddRange(New Object() {"L", "P"})
-        Me.Jenis_kelaminComboBox.Location = New System.Drawing.Point(88, 122)
+        Me.Jenis_kelaminComboBox.Location = New System.Drawing.Point(88, 139)
         Me.Jenis_kelaminComboBox.Name = "Jenis_kelaminComboBox"
         Me.Jenis_kelaminComboBox.Size = New System.Drawing.Size(200, 21)
         Me.Jenis_kelaminComboBox.TabIndex = 8
@@ -301,7 +285,7 @@ Partial Class Form1
         Me.Tgl_lahirDateTimePicker.CustomFormat = "dd MMMM yyyy"
         Me.Tgl_lahirDateTimePicker.DataBindings.Add(New System.Windows.Forms.Binding("Value", Me.MahasiswaBindingSource, "tgl_lahir", True))
         Me.Tgl_lahirDateTimePicker.Format = System.Windows.Forms.DateTimePickerFormat.Custom
-        Me.Tgl_lahirDateTimePicker.Location = New System.Drawing.Point(88, 149)
+        Me.Tgl_lahirDateTimePicker.Location = New System.Drawing.Point(88, 166)
         Me.Tgl_lahirDateTimePicker.Name = "Tgl_lahirDateTimePicker"
         Me.Tgl_lahirDateTimePicker.Size = New System.Drawing.Size(200, 20)
         Me.Tgl_lahirDateTimePicker.TabIndex = 10
@@ -314,11 +298,20 @@ Partial Class Form1
         Me.MahasiswaDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.MahasiswaDataGridView.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.DataGridViewTextBoxColumn1, Me.DataGridViewTextBoxColumn2, Me.DataGridViewTextBoxColumn3, Me.DataGridViewTextBoxColumn4, Me.DataGridViewTextBoxColumn5})
         Me.MahasiswaDataGridView.DataSource = Me.MahasiswaBindingSource
-        Me.MahasiswaDataGridView.Location = New System.Drawing.Point(15, 186)
+        Me.MahasiswaDataGridView.Location = New System.Drawing.Point(15, 211)
         Me.MahasiswaDataGridView.Name = "MahasiswaDataGridView"
         Me.MahasiswaDataGridView.ReadOnly = True
-        Me.MahasiswaDataGridView.Size = New System.Drawing.Size(773, 214)
+        Me.MahasiswaDataGridView.Size = New System.Drawing.Size(773, 189)
         Me.MahasiswaDataGridView.TabIndex = 11
+        '
+        'ToolStripButton2
+        '
+        Me.ToolStripButton2.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text
+        Me.ToolStripButton2.Image = CType(resources.GetObject("ToolStripButton2.Image"), System.Drawing.Image)
+        Me.ToolStripButton2.ImageTransparentColor = System.Drawing.Color.Magenta
+        Me.ToolStripButton2.Name = "ToolStripButton2"
+        Me.ToolStripButton2.Size = New System.Drawing.Size(40, 22)
+        Me.ToolStripButton2.Text = "KRS..."
         '
         'DataGridViewTextBoxColumn1
         '
@@ -355,20 +348,72 @@ Partial Class Form1
         Me.DataGridViewTextBoxColumn5.Name = "DataGridViewTextBoxColumn5"
         Me.DataGridViewTextBoxColumn5.ReadOnly = True
         '
-        'ToolStripButton2
+        'MahasiswaBindingSource
         '
-        Me.ToolStripButton2.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text
-        Me.ToolStripButton2.Image = CType(resources.GetObject("ToolStripButton2.Image"), System.Drawing.Image)
-        Me.ToolStripButton2.ImageTransparentColor = System.Drawing.Color.Magenta
-        Me.ToolStripButton2.Name = "ToolStripButton2"
-        Me.ToolStripButton2.Size = New System.Drawing.Size(40, 22)
-        Me.ToolStripButton2.Text = "KRS..."
+        Me.MahasiswaBindingSource.DataMember = "mahasiswa"
+        Me.MahasiswaBindingSource.DataSource = Me.AkademisDataSet
+        '
+        'AkademisDataSet
+        '
+        Me.AkademisDataSet.DataSetName = "akademisDataSet"
+        Me.AkademisDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
+        '
+        'MahasiswaTableAdapter
+        '
+        Me.MahasiswaTableAdapter.ClearBeforeFill = True
+        '
+        'TableAdapterManager
+        '
+        Me.TableAdapterManager.BackupDataSetBeforeUpdate = False
+        Me.TableAdapterManager.krsTableAdapter = Nothing
+        Me.TableAdapterManager.mahasiswaTableAdapter = Me.MahasiswaTableAdapter
+        Me.TableAdapterManager.matkulTableAdapter = Nothing
+        Me.TableAdapterManager.UpdateOrder = WindowsApp1.akademisDataSetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete
+        '
+        'FillByNimNamaToolStrip
+        '
+        Me.FillByNimNamaToolStrip.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.NimToolStripLabel, Me.NimToolStripTextBox, Me.NamaToolStripLabel, Me.NamaToolStripTextBox, Me.FillByNimNamaToolStripButton})
+        Me.FillByNimNamaToolStrip.Location = New System.Drawing.Point(0, 25)
+        Me.FillByNimNamaToolStrip.Name = "FillByNimNamaToolStrip"
+        Me.FillByNimNamaToolStrip.Size = New System.Drawing.Size(808, 25)
+        Me.FillByNimNamaToolStrip.TabIndex = 12
+        Me.FillByNimNamaToolStrip.Text = "FillByNimNamaToolStrip"
+        '
+        'NimToolStripLabel
+        '
+        Me.NimToolStripLabel.Name = "NimToolStripLabel"
+        Me.NimToolStripLabel.Size = New System.Drawing.Size(31, 22)
+        Me.NimToolStripLabel.Text = "nim:"
+        '
+        'NimToolStripTextBox
+        '
+        Me.NimToolStripTextBox.Name = "NimToolStripTextBox"
+        Me.NimToolStripTextBox.Size = New System.Drawing.Size(100, 23)
+        '
+        'NamaToolStripLabel
+        '
+        Me.NamaToolStripLabel.Name = "NamaToolStripLabel"
+        Me.NamaToolStripLabel.Size = New System.Drawing.Size(40, 15)
+        Me.NamaToolStripLabel.Text = "nama:"
+        '
+        'NamaToolStripTextBox
+        '
+        Me.NamaToolStripTextBox.Name = "NamaToolStripTextBox"
+        Me.NamaToolStripTextBox.Size = New System.Drawing.Size(100, 23)
+        '
+        'FillByNimNamaToolStripButton
+        '
+        Me.FillByNimNamaToolStripButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text
+        Me.FillByNimNamaToolStripButton.Name = "FillByNimNamaToolStripButton"
+        Me.FillByNimNamaToolStripButton.Size = New System.Drawing.Size(32, 22)
+        Me.FillByNimNamaToolStripButton.Text = "Cari"
         '
         'Form1
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(800, 450)
+        Me.ClientSize = New System.Drawing.Size(808, 450)
+        Me.Controls.Add(Me.FillByNimNamaToolStrip)
         Me.Controls.Add(Me.MahasiswaDataGridView)
         Me.Controls.Add(NimLabel)
         Me.Controls.Add(Me.NimTextBox)
@@ -383,13 +428,15 @@ Partial Class Form1
         Me.Controls.Add(Me.MahasiswaBindingNavigator)
         Me.Name = "Form1"
         Me.Text = "Form1"
-        CType(Me.AkademisDataSet, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.MahasiswaBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.MahasiswaBindingNavigator, System.ComponentModel.ISupportInitialize).EndInit()
         Me.MahasiswaBindingNavigator.ResumeLayout(False)
         Me.MahasiswaBindingNavigator.PerformLayout()
         CType(Me.AngkatanNumericUpDown, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.MahasiswaDataGridView, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.MahasiswaBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.AkademisDataSet, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.FillByNimNamaToolStrip.ResumeLayout(False)
+        Me.FillByNimNamaToolStrip.PerformLayout()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -425,4 +472,10 @@ Partial Class Form1
     Friend WithEvents DataGridViewTextBoxColumn5 As DataGridViewTextBoxColumn
     Friend WithEvents ToolStripButton1 As ToolStripButton
     Friend WithEvents ToolStripButton2 As ToolStripButton
+    Friend WithEvents FillByNimNamaToolStrip As ToolStrip
+    Friend WithEvents NimToolStripLabel As ToolStripLabel
+    Friend WithEvents NimToolStripTextBox As ToolStripTextBox
+    Friend WithEvents NamaToolStripLabel As ToolStripLabel
+    Friend WithEvents NamaToolStripTextBox As ToolStripTextBox
+    Friend WithEvents FillByNimNamaToolStripButton As ToolStripButton
 End Class

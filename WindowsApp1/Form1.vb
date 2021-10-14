@@ -19,4 +19,13 @@
     Private Sub ToolStripButton2_Click(sender As Object, e As EventArgs) Handles ToolStripButton2.Click
         KRS.Show()
     End Sub
+
+    Private Sub FillByNimNamaToolStripButton_Click(sender As Object, e As EventArgs) Handles FillByNimNamaToolStripButton.Click
+        Try
+            Me.MahasiswaTableAdapter.FillByNimNama(Me.AkademisDataSet.mahasiswa, "%" & NimToolStripTextBox.Text & "%", "%" & NamaToolStripTextBox.Text & "%")
+        Catch ex As System.Exception
+            System.Windows.Forms.MessageBox.Show(ex.Message)
+        End Try
+
+    End Sub
 End Class
