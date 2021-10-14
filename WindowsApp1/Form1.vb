@@ -15,4 +15,8 @@
     Private Sub ToolStripButton1_Click(sender As Object, e As EventArgs) Handles ToolStripButton1.Click
         Matkul.ShowDialog()
     End Sub
+
+    Private Sub ToolStripButton2_Click(sender As Object, e As EventArgs) Handles ToolStripButton2.Click
+        KRS.Show()
+    End Sub
 End Class
