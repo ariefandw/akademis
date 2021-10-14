@@ -28,4 +28,8 @@
         End Try
 
     End Sub
+
+    Private Sub ToolStripButton3_Click(sender As Object, e As EventArgs) Handles ToolStripButton3.Click
+        KHS.Show()
+    End Sub
 End Class

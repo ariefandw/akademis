@@ -65,6 +65,7 @@ Partial Class Form1
         Me.NamaToolStripLabel = New System.Windows.Forms.ToolStripLabel()
         Me.NamaToolStripTextBox = New System.Windows.Forms.ToolStripTextBox()
         Me.FillByNimNamaToolStripButton = New System.Windows.Forms.ToolStripButton()
+        Me.ToolStripButton3 = New System.Windows.Forms.ToolStripButton()
         NimLabel = New System.Windows.Forms.Label()
         NamaLabel = New System.Windows.Forms.Label()
         AngkatanLabel = New System.Windows.Forms.Label()
@@ -130,7 +131,7 @@ Partial Class Form1
         Me.MahasiswaBindingNavigator.BindingSource = Me.MahasiswaBindingSource
         Me.MahasiswaBindingNavigator.CountItem = Me.BindingNavigatorCountItem
         Me.MahasiswaBindingNavigator.DeleteItem = Me.BindingNavigatorDeleteItem
-        Me.MahasiswaBindingNavigator.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.BindingNavigatorMoveFirstItem, Me.BindingNavigatorMovePreviousItem, Me.BindingNavigatorSeparator, Me.BindingNavigatorPositionItem, Me.BindingNavigatorCountItem, Me.BindingNavigatorSeparator1, Me.BindingNavigatorMoveNextItem, Me.BindingNavigatorMoveLastItem, Me.BindingNavigatorSeparator2, Me.BindingNavigatorAddNewItem, Me.BindingNavigatorDeleteItem, Me.MahasiswaBindingNavigatorSaveItem, Me.ToolStripButton1, Me.ToolStripButton2})
+        Me.MahasiswaBindingNavigator.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.BindingNavigatorMoveFirstItem, Me.BindingNavigatorMovePreviousItem, Me.BindingNavigatorSeparator, Me.BindingNavigatorPositionItem, Me.BindingNavigatorCountItem, Me.BindingNavigatorSeparator1, Me.BindingNavigatorMoveNextItem, Me.BindingNavigatorMoveLastItem, Me.BindingNavigatorSeparator2, Me.BindingNavigatorAddNewItem, Me.BindingNavigatorDeleteItem, Me.MahasiswaBindingNavigatorSaveItem, Me.ToolStripButton1, Me.ToolStripButton2, Me.ToolStripButton3})
         Me.MahasiswaBindingNavigator.Location = New System.Drawing.Point(0, 0)
         Me.MahasiswaBindingNavigator.MoveFirstItem = Me.BindingNavigatorMoveFirstItem
         Me.MahasiswaBindingNavigator.MoveLastItem = Me.BindingNavigatorMoveLastItem
@@ -408,6 +409,15 @@ Partial Class Form1
         Me.FillByNimNamaToolStripButton.Size = New System.Drawing.Size(32, 22)
         Me.FillByNimNamaToolStripButton.Text = "Cari"
         '
+        'ToolStripButton3
+        '
+        Me.ToolStripButton3.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text
+        Me.ToolStripButton3.Image = CType(resources.GetObject("ToolStripButton3.Image"), System.Drawing.Image)
+        Me.ToolStripButton3.ImageTransparentColor = System.Drawing.Color.Magenta
+        Me.ToolStripButton3.Name = "ToolStripButton3"
+        Me.ToolStripButton3.Size = New System.Drawing.Size(42, 22)
+        Me.ToolStripButton3.Text = "KHS..."
+        '
         'Form1
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -478,4 +488,5 @@ Partial Class Form1
     Friend WithEvents NamaToolStripLabel As ToolStripLabel
     Friend WithEvents NamaToolStripTextBox As ToolStripTextBox
     Friend WithEvents FillByNimNamaToolStripButton As ToolStripButton
+    Friend WithEvents ToolStripButton3 As ToolStripButton
 End Class

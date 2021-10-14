@@ -46,11 +46,12 @@ Partial Class KRS
         Me.MahasiswaTableAdapter = New WindowsApp1.akademisDataSetTableAdapters.mahasiswaTableAdapter()
         Me.MatkulBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.MatkulTableAdapter = New WindowsApp1.akademisDataSetTableAdapters.matkulTableAdapter()
+        Me.ToolStripButton1 = New System.Windows.Forms.ToolStripButton()
         Me.DataGridViewTextBoxColumn1 = New System.Windows.Forms.DataGridViewComboBoxColumn()
         Me.DataGridViewTextBoxColumn2 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.DataGridViewTextBoxColumn3 = New System.Windows.Forms.DataGridViewComboBoxColumn()
         Me.DataGridViewTextBoxColumn4 = New System.Windows.Forms.DataGridViewComboBoxColumn()
-        Me.DataGridViewTextBoxColumn5 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewTextBoxColumn5 = New System.Windows.Forms.DataGridViewComboBoxColumn()
         CType(Me.KrsBindingNavigator, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.KrsBindingNavigator.SuspendLayout()
         CType(Me.KrsDataGridView, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -66,7 +67,7 @@ Partial Class KRS
         Me.KrsBindingNavigator.BindingSource = Me.KrsBindingSource
         Me.KrsBindingNavigator.CountItem = Me.BindingNavigatorCountItem
         Me.KrsBindingNavigator.DeleteItem = Me.BindingNavigatorDeleteItem
-        Me.KrsBindingNavigator.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.BindingNavigatorMoveFirstItem, Me.BindingNavigatorMovePreviousItem, Me.BindingNavigatorSeparator, Me.BindingNavigatorPositionItem, Me.BindingNavigatorCountItem, Me.BindingNavigatorSeparator1, Me.BindingNavigatorMoveNextItem, Me.BindingNavigatorMoveLastItem, Me.BindingNavigatorSeparator2, Me.BindingNavigatorAddNewItem, Me.BindingNavigatorDeleteItem, Me.KrsBindingNavigatorSaveItem})
+        Me.KrsBindingNavigator.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.BindingNavigatorMoveFirstItem, Me.BindingNavigatorMovePreviousItem, Me.BindingNavigatorSeparator, Me.BindingNavigatorPositionItem, Me.BindingNavigatorCountItem, Me.BindingNavigatorSeparator1, Me.BindingNavigatorMoveNextItem, Me.BindingNavigatorMoveLastItem, Me.BindingNavigatorSeparator2, Me.BindingNavigatorAddNewItem, Me.BindingNavigatorDeleteItem, Me.KrsBindingNavigatorSaveItem, Me.ToolStripButton1})
         Me.KrsBindingNavigator.Location = New System.Drawing.Point(0, 0)
         Me.KrsBindingNavigator.MoveFirstItem = Me.BindingNavigatorMoveFirstItem
         Me.KrsBindingNavigator.MoveLastItem = Me.BindingNavigatorMoveLastItem
@@ -178,9 +179,10 @@ Partial Class KRS
         Me.KrsDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.KrsDataGridView.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.DataGridViewTextBoxColumn1, Me.DataGridViewTextBoxColumn2, Me.DataGridViewTextBoxColumn3, Me.DataGridViewTextBoxColumn4, Me.DataGridViewTextBoxColumn5})
         Me.KrsDataGridView.DataSource = Me.KrsBindingSource
-        Me.KrsDataGridView.Location = New System.Drawing.Point(12, 87)
+        Me.KrsDataGridView.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.KrsDataGridView.Location = New System.Drawing.Point(0, 25)
         Me.KrsDataGridView.Name = "KrsDataGridView"
-        Me.KrsDataGridView.Size = New System.Drawing.Size(776, 220)
+        Me.KrsDataGridView.Size = New System.Drawing.Size(800, 425)
         Me.KrsDataGridView.TabIndex = 1
         '
         'KrsBindingSource
@@ -223,6 +225,15 @@ Partial Class KRS
         '
         Me.MatkulTableAdapter.ClearBeforeFill = True
         '
+        'ToolStripButton1
+        '
+        Me.ToolStripButton1.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text
+        Me.ToolStripButton1.Image = CType(resources.GetObject("ToolStripButton1.Image"), System.Drawing.Image)
+        Me.ToolStripButton1.ImageTransparentColor = System.Drawing.Color.Magenta
+        Me.ToolStripButton1.Name = "ToolStripButton1"
+        Me.ToolStripButton1.Size = New System.Drawing.Size(50, 22)
+        Me.ToolStripButton1.Text = "Refresh"
+        '
         'DataGridViewTextBoxColumn1
         '
         Me.DataGridViewTextBoxColumn1.DataPropertyName = "nim"
@@ -264,7 +275,10 @@ Partial Class KRS
         '
         Me.DataGridViewTextBoxColumn5.DataPropertyName = "nilai_huruf"
         Me.DataGridViewTextBoxColumn5.HeaderText = "nilai_huruf"
+        Me.DataGridViewTextBoxColumn5.Items.AddRange(New Object() {"A", "B", "C", "D", "E"})
         Me.DataGridViewTextBoxColumn5.Name = "DataGridViewTextBoxColumn5"
+        Me.DataGridViewTextBoxColumn5.Resizable = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.DataGridViewTextBoxColumn5.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic
         '
         'KRS
         '
@@ -310,9 +324,10 @@ Partial Class KRS
     Friend WithEvents MahasiswaTableAdapter As akademisDataSetTableAdapters.mahasiswaTableAdapter
     Friend WithEvents MatkulBindingSource As BindingSource
     Friend WithEvents MatkulTableAdapter As akademisDataSetTableAdapters.matkulTableAdapter
+    Friend WithEvents ToolStripButton1 As ToolStripButton
     Friend WithEvents DataGridViewTextBoxColumn1 As DataGridViewComboBoxColumn
     Friend WithEvents DataGridViewTextBoxColumn2 As DataGridViewTextBoxColumn
     Friend WithEvents DataGridViewTextBoxColumn3 As DataGridViewComboBoxColumn
     Friend WithEvents DataGridViewTextBoxColumn4 As DataGridViewComboBoxColumn
-    Friend WithEvents DataGridViewTextBoxColumn5 As DataGridViewTextBoxColumn
+    Friend WithEvents DataGridViewTextBoxColumn5 As DataGridViewComboBoxColumn
 End Class
