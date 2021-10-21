@@ -113,6 +113,12 @@
       <DependentUpon>Form1.vb</DependentUpon>
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="IPK.Designer.vb">
+      <DependentUpon>IPK.vb</DependentUpon>
+    </Compile>
+    <Compile Include="IPK.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="KHS.Designer.vb">
       <DependentUpon>KHS.vb</DependentUpon>
     </Compile>
@@ -150,6 +156,10 @@
   <ItemGroup>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="IPK.rdlc" />
+    <EmbeddedResource Include="IPK.resx">
+      <DependentUpon>IPK.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="KHS.rdlc" />
     <EmbeddedResource Include="KHS.resx">

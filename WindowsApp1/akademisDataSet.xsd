@@ -243,6 +243,32 @@ WHERE        (mahasiswa.nim = @nim) AND (krs.thn_ajar = @thn_ajar) AND (krs.seme
             </Mappings>
             <Sources />
           </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="ipkTableAdapter" GeneratorDataComponentClassName="ipkTableAdapter" Name="ipk" UserDataComponentName="ipkTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="akademisConnectionString (MySettings)" DbObjectName="akademis.mahasiswa" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT        mahasiswa.nim, mahasiswa.nama, mahasiswa.angkatan, mahasiswa.jenis_kelamin, mahasiswa.tgl_lahir, 
+                         SUM(CASE WHEN nilai_huruf = 'A' THEN 4 WHEN nilai_huruf = 'B' THEN 3 WHEN nilai_huruf = 'C' THEN 2 WHEN nilai_huruf = 'D' THEN 1 ELSE 0 END * matkul.sks) / SUM(matkul.sks) AS ipk
+FROM            mahasiswa INNER JOIN
+                         krs ON mahasiswa.nim = krs.nim INNER JOIN
+                         matkul ON krs.kd_matkul = matkul.kd_matkul
+GROUP BY mahasiswa.nim</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="nim" DataSetColumn="nim" />
+              <Mapping SourceColumn="nama" DataSetColumn="nama" />
+              <Mapping SourceColumn="angkatan" DataSetColumn="angkatan" />
+              <Mapping SourceColumn="jenis_kelamin" DataSetColumn="jenis_kelamin" />
+              <Mapping SourceColumn="tgl_lahir" DataSetColumn="tgl_lahir" />
+              <Mapping SourceColumn="ipk" DataSetColumn="ipk" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
         </Tables>
         <Sources />
       </DataSource>
@@ -251,7 +277,7 @@ WHERE        (mahasiswa.nim = @nim) AND (krs.thn_ajar = @thn_ajar) AND (krs.seme
   <xs:element name="akademisDataSet" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="True" msprop:Generator_DataSetName="akademisDataSet" msprop:Generator_UserDSName="akademisDataSet">
     <xs:complexType>
       <xs:choice minOccurs="0" maxOccurs="unbounded">
-        <xs:element name="mahasiswa" msprop:Generator_TableClassName="mahasiswaDataTable" msprop:Generator_TableVarName="tablemahasiswa" msprop:Generator_TablePropName="mahasiswa" msprop:Generator_RowDeletingName="mahasiswaRowDeleting" msprop:Generator_RowChangingName="mahasiswaRowChanging" msprop:Generator_RowEvHandlerName="mahasiswaRowChangeEventHandler" msprop:Generator_RowDeletedName="mahasiswaRowDeleted" msprop:Generator_UserTableName="mahasiswa" msprop:Generator_RowChangedName="mahasiswaRowChanged" msprop:Generator_RowEvArgName="mahasiswaRowChangeEvent" msprop:Generator_RowClassName="mahasiswaRow">
+        <xs:element name="mahasiswa" msprop:Generator_TableClassName="mahasiswaDataTable" msprop:Generator_TableVarName="tablemahasiswa" msprop:Generator_RowChangedName="mahasiswaRowChanged" msprop:Generator_TablePropName="mahasiswa" msprop:Generator_RowDeletingName="mahasiswaRowDeleting" msprop:Generator_RowChangingName="mahasiswaRowChanging" msprop:Generator_RowEvHandlerName="mahasiswaRowChangeEventHandler" msprop:Generator_RowDeletedName="mahasiswaRowDeleted" msprop:Generator_RowClassName="mahasiswaRow" msprop:Generator_UserTableName="mahasiswa" msprop:Generator_RowEvArgName="mahasiswaRowChangeEvent">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="nim" msprop:Generator_ColumnVarNameInTable="columnnim" msprop:Generator_ColumnPropNameInRow="nim" msprop:Generator_ColumnPropNameInTable="nimColumn" msprop:Generator_UserColumnName="nim">
@@ -280,7 +306,7 @@ WHERE        (mahasiswa.nim = @nim) AND (krs.thn_ajar = @thn_ajar) AND (krs.seme
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="matkul" msprop:Generator_TableClassName="matkulDataTable" msprop:Generator_TableVarName="tablematkul" msprop:Generator_RowChangedName="matkulRowChanged" msprop:Generator_TablePropName="matkul" msprop:Generator_RowDeletingName="matkulRowDeleting" msprop:Generator_RowChangingName="matkulRowChanging" msprop:Generator_RowEvHandlerName="matkulRowChangeEventHandler" msprop:Generator_RowDeletedName="matkulRowDeleted" msprop:Generator_RowClassName="matkulRow" msprop:Generator_UserTableName="matkul" msprop:Generator_RowEvArgName="matkulRowChangeEvent">
+        <xs:element name="matkul" msprop:Generator_TableClassName="matkulDataTable" msprop:Generator_TableVarName="tablematkul" msprop:Generator_TablePropName="matkul" msprop:Generator_RowDeletingName="matkulRowDeleting" msprop:Generator_RowChangingName="matkulRowChanging" msprop:Generator_RowEvHandlerName="matkulRowChangeEventHandler" msprop:Generator_RowDeletedName="matkulRowDeleted" msprop:Generator_UserTableName="matkul" msprop:Generator_RowChangedName="matkulRowChanged" msprop:Generator_RowEvArgName="matkulRowChangeEvent" msprop:Generator_RowClassName="matkulRow">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="kd_matkul" msprop:Generator_ColumnVarNameInTable="columnkd_matkul" msprop:Generator_ColumnPropNameInRow="kd_matkul" msprop:Generator_ColumnPropNameInTable="kd_matkulColumn" msprop:Generator_UserColumnName="kd_matkul">
@@ -301,7 +327,7 @@ WHERE        (mahasiswa.nim = @nim) AND (krs.thn_ajar = @thn_ajar) AND (krs.seme
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="krs" msprop:Generator_TableClassName="krsDataTable" msprop:Generator_TableVarName="tablekrs" msprop:Generator_TablePropName="krs" msprop:Generator_RowDeletingName="krsRowDeleting" msprop:Generator_RowChangingName="krsRowChanging" msprop:Generator_RowEvHandlerName="krsRowChangeEventHandler" msprop:Generator_RowDeletedName="krsRowDeleted" msprop:Generator_UserTableName="krs" msprop:Generator_RowChangedName="krsRowChanged" msprop:Generator_RowEvArgName="krsRowChangeEvent" msprop:Generator_RowClassName="krsRow">
+        <xs:element name="krs" msprop:Generator_TableClassName="krsDataTable" msprop:Generator_TableVarName="tablekrs" msprop:Generator_RowChangedName="krsRowChanged" msprop:Generator_TablePropName="krs" msprop:Generator_RowDeletingName="krsRowDeleting" msprop:Generator_RowChangingName="krsRowChanging" msprop:Generator_RowEvHandlerName="krsRowChangeEventHandler" msprop:Generator_RowDeletedName="krsRowDeleted" msprop:Generator_RowClassName="krsRow" msprop:Generator_UserTableName="krs" msprop:Generator_RowEvArgName="krsRowChangeEvent">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="nim" msprop:Generator_ColumnVarNameInTable="columnnim" msprop:Generator_ColumnPropNameInRow="nim" msprop:Generator_ColumnPropNameInTable="nimColumn" msprop:Generator_UserColumnName="nim">
@@ -336,7 +362,7 @@ WHERE        (mahasiswa.nim = @nim) AND (krs.thn_ajar = @thn_ajar) AND (krs.seme
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="khs" msprop:Generator_TableClassName="khsDataTable" msprop:Generator_TableVarName="tablekhs" msprop:Generator_TablePropName="khs" msprop:Generator_RowDeletingName="khsRowDeleting" msprop:Generator_RowChangingName="khsRowChanging" msprop:Generator_RowEvHandlerName="khsRowChangeEventHandler" msprop:Generator_RowDeletedName="khsRowDeleted" msprop:Generator_UserTableName="khs" msprop:Generator_RowChangedName="khsRowChanged" msprop:Generator_RowEvArgName="khsRowChangeEvent" msprop:Generator_RowClassName="khsRow">
+        <xs:element name="khs" msprop:Generator_TableClassName="khsDataTable" msprop:Generator_TableVarName="tablekhs" msprop:Generator_RowChangedName="khsRowChanged" msprop:Generator_TablePropName="khs" msprop:Generator_RowDeletingName="khsRowDeleting" msprop:Generator_RowChangingName="khsRowChanging" msprop:Generator_RowEvHandlerName="khsRowChangeEventHandler" msprop:Generator_RowDeletedName="khsRowDeleted" msprop:Generator_RowClassName="khsRow" msprop:Generator_UserTableName="khs" msprop:Generator_RowEvArgName="khsRowChangeEvent">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="nim" msprop:Generator_ColumnVarNameInTable="columnnim" msprop:Generator_ColumnPropNameInRow="nim" msprop:Generator_ColumnPropNameInTable="nimColumn" msprop:Generator_UserColumnName="nim">
@@ -392,6 +418,36 @@ WHERE        (mahasiswa.nim = @nim) AND (krs.thn_ajar = @thn_ajar) AND (krs.seme
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="ipk" msprop:Generator_TableClassName="ipkDataTable" msprop:Generator_TableVarName="tableipk" msprop:Generator_TablePropName="ipk" msprop:Generator_RowDeletingName="ipkRowDeleting" msprop:Generator_RowChangingName="ipkRowChanging" msprop:Generator_RowEvHandlerName="ipkRowChangeEventHandler" msprop:Generator_RowDeletedName="ipkRowDeleted" msprop:Generator_UserTableName="ipk" msprop:Generator_RowChangedName="ipkRowChanged" msprop:Generator_RowEvArgName="ipkRowChangeEvent" msprop:Generator_RowClassName="ipkRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="nim" msprop:Generator_ColumnVarNameInTable="columnnim" msprop:Generator_ColumnPropNameInRow="nim" msprop:Generator_ColumnPropNameInTable="nimColumn" msprop:Generator_UserColumnName="nim">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="nama" msprop:Generator_ColumnVarNameInTable="columnnama" msprop:Generator_ColumnPropNameInRow="nama" msprop:Generator_ColumnPropNameInTable="namaColumn" msprop:Generator_UserColumnName="nama" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="angkatan" msprop:Generator_ColumnVarNameInTable="columnangkatan" msprop:Generator_ColumnPropNameInRow="angkatan" msprop:Generator_ColumnPropNameInTable="angkatanColumn" msprop:Generator_UserColumnName="angkatan" type="xs:int" minOccurs="0" />
+              <xs:element name="jenis_kelamin" msprop:Generator_ColumnVarNameInTable="columnjenis_kelamin" msprop:Generator_ColumnPropNameInRow="jenis_kelamin" msprop:Generator_ColumnPropNameInTable="jenis_kelaminColumn" msprop:Generator_UserColumnName="jenis_kelamin" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="tgl_lahir" msprop:Generator_ColumnVarNameInTable="columntgl_lahir" msprop:Generator_ColumnPropNameInRow="tgl_lahir" msprop:Generator_ColumnPropNameInTable="tgl_lahirColumn" msprop:Generator_UserColumnName="tgl_lahir" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="ipk" msprop:Generator_ColumnVarNameInTable="columnipk" msprop:Generator_ColumnPropNameInRow="ipk" msprop:Generator_ColumnPropNameInTable="ipkColumn" msprop:Generator_UserColumnName="ipk" type="xs:decimal" minOccurs="0" />
             </xs:sequence>
           </xs:complexType>
         </xs:element>
@@ -418,6 +474,10 @@ WHERE        (mahasiswa.nim = @nim) AND (krs.thn_ajar = @thn_ajar) AND (krs.seme
       <xs:field xpath="mstns:thn_ajar" />
       <xs:field xpath="mstns:semester" />
       <xs:field xpath="mstns:kd_matkul" />
+    </xs:unique>
+    <xs:unique name="ipk_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:ipk" />
+      <xs:field xpath="mstns:nim" />
     </xs:unique>
   </xs:element>
 </xs:schema>

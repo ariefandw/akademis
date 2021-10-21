@@ -86,3 +86,4 @@ C:\Users\arief\source\repos\WindowsApp1\WindowsApp1\bin\Debug\zh-CHT\Microsoft.R
 C:\Users\arief\source\repos\WindowsApp1\WindowsApp1\obj\Debug\WindowsApp1.KHS.resources
 C:\Users\arief\source\repos\WindowsApp1\WindowsApp1\obj\Debug\RdlCompile.cache
 C:\Users\arief\source\repos\WindowsApp1\WindowsApp1\obj\Debug\RdlCompile.compiled
+C:\Users\arief\source\repos\WindowsApp1\WindowsApp1\obj\Debug\WindowsApp1.IPK.resources

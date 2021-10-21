@@ -31,6 +31,8 @@ Partial Class Form1
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(Form1))
         Me.MahasiswaBindingNavigator = New System.Windows.Forms.BindingNavigator(Me.components)
         Me.BindingNavigatorAddNewItem = New System.Windows.Forms.ToolStripButton()
+        Me.MahasiswaBindingSource = New System.Windows.Forms.BindingSource(Me.components)
+        Me.AkademisDataSet = New WindowsApp1.akademisDataSet()
         Me.BindingNavigatorCountItem = New System.Windows.Forms.ToolStripLabel()
         Me.BindingNavigatorDeleteItem = New System.Windows.Forms.ToolStripButton()
         Me.BindingNavigatorMoveFirstItem = New System.Windows.Forms.ToolStripButton()
@@ -43,20 +45,19 @@ Partial Class Form1
         Me.BindingNavigatorSeparator2 = New System.Windows.Forms.ToolStripSeparator()
         Me.MahasiswaBindingNavigatorSaveItem = New System.Windows.Forms.ToolStripButton()
         Me.ToolStripButton1 = New System.Windows.Forms.ToolStripButton()
+        Me.ToolStripButton2 = New System.Windows.Forms.ToolStripButton()
+        Me.ToolStripButton3 = New System.Windows.Forms.ToolStripButton()
         Me.NimTextBox = New System.Windows.Forms.TextBox()
         Me.NamaTextBox = New System.Windows.Forms.TextBox()
         Me.AngkatanNumericUpDown = New System.Windows.Forms.NumericUpDown()
         Me.Jenis_kelaminComboBox = New System.Windows.Forms.ComboBox()
         Me.Tgl_lahirDateTimePicker = New System.Windows.Forms.DateTimePicker()
         Me.MahasiswaDataGridView = New System.Windows.Forms.DataGridView()
-        Me.ToolStripButton2 = New System.Windows.Forms.ToolStripButton()
         Me.DataGridViewTextBoxColumn1 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.DataGridViewTextBoxColumn2 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.DataGridViewTextBoxColumn3 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.DataGridViewTextBoxColumn4 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.DataGridViewTextBoxColumn5 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.MahasiswaBindingSource = New System.Windows.Forms.BindingSource(Me.components)
-        Me.AkademisDataSet = New WindowsApp1.akademisDataSet()
         Me.MahasiswaTableAdapter = New WindowsApp1.akademisDataSetTableAdapters.mahasiswaTableAdapter()
         Me.TableAdapterManager = New WindowsApp1.akademisDataSetTableAdapters.TableAdapterManager()
         Me.FillByNimNamaToolStrip = New System.Windows.Forms.ToolStrip()
@@ -65,7 +66,7 @@ Partial Class Form1
         Me.NamaToolStripLabel = New System.Windows.Forms.ToolStripLabel()
         Me.NamaToolStripTextBox = New System.Windows.Forms.ToolStripTextBox()
         Me.FillByNimNamaToolStripButton = New System.Windows.Forms.ToolStripButton()
-        Me.ToolStripButton3 = New System.Windows.Forms.ToolStripButton()
+        Me.ToolStripButton4 = New System.Windows.Forms.ToolStripButton()
         NimLabel = New System.Windows.Forms.Label()
         NamaLabel = New System.Windows.Forms.Label()
         AngkatanLabel = New System.Windows.Forms.Label()
@@ -73,10 +74,10 @@ Partial Class Form1
         Tgl_lahirLabel = New System.Windows.Forms.Label()
         CType(Me.MahasiswaBindingNavigator, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.MahasiswaBindingNavigator.SuspendLayout()
-        CType(Me.AngkatanNumericUpDown, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.MahasiswaDataGridView, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.MahasiswaBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.AkademisDataSet, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.AngkatanNumericUpDown, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.MahasiswaDataGridView, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.FillByNimNamaToolStrip.SuspendLayout()
         Me.SuspendLayout()
         '
@@ -131,7 +132,7 @@ Partial Class Form1
         Me.MahasiswaBindingNavigator.BindingSource = Me.MahasiswaBindingSource
         Me.MahasiswaBindingNavigator.CountItem = Me.BindingNavigatorCountItem
         Me.MahasiswaBindingNavigator.DeleteItem = Me.BindingNavigatorDeleteItem
-        Me.MahasiswaBindingNavigator.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.BindingNavigatorMoveFirstItem, Me.BindingNavigatorMovePreviousItem, Me.BindingNavigatorSeparator, Me.BindingNavigatorPositionItem, Me.BindingNavigatorCountItem, Me.BindingNavigatorSeparator1, Me.BindingNavigatorMoveNextItem, Me.BindingNavigatorMoveLastItem, Me.BindingNavigatorSeparator2, Me.BindingNavigatorAddNewItem, Me.BindingNavigatorDeleteItem, Me.MahasiswaBindingNavigatorSaveItem, Me.ToolStripButton1, Me.ToolStripButton2, Me.ToolStripButton3})
+        Me.MahasiswaBindingNavigator.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.BindingNavigatorMoveFirstItem, Me.BindingNavigatorMovePreviousItem, Me.BindingNavigatorSeparator, Me.BindingNavigatorPositionItem, Me.BindingNavigatorCountItem, Me.BindingNavigatorSeparator1, Me.BindingNavigatorMoveNextItem, Me.BindingNavigatorMoveLastItem, Me.BindingNavigatorSeparator2, Me.BindingNavigatorAddNewItem, Me.BindingNavigatorDeleteItem, Me.MahasiswaBindingNavigatorSaveItem, Me.ToolStripButton1, Me.ToolStripButton2, Me.ToolStripButton3, Me.ToolStripButton4})
         Me.MahasiswaBindingNavigator.Location = New System.Drawing.Point(0, 0)
         Me.MahasiswaBindingNavigator.MoveFirstItem = Me.BindingNavigatorMoveFirstItem
         Me.MahasiswaBindingNavigator.MoveLastItem = Me.BindingNavigatorMoveLastItem
@@ -151,6 +152,16 @@ Partial Class Form1
         Me.BindingNavigatorAddNewItem.RightToLeftAutoMirrorImage = True
         Me.BindingNavigatorAddNewItem.Size = New System.Drawing.Size(23, 22)
         Me.BindingNavigatorAddNewItem.Text = "Add new"
+        '
+        'MahasiswaBindingSource
+        '
+        Me.MahasiswaBindingSource.DataMember = "mahasiswa"
+        Me.MahasiswaBindingSource.DataSource = Me.AkademisDataSet
+        '
+        'AkademisDataSet
+        '
+        Me.AkademisDataSet.DataSetName = "akademisDataSet"
+        Me.AkademisDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
         '
         'BindingNavigatorCountItem
         '
@@ -195,6 +206,7 @@ Partial Class Form1
         '
         Me.BindingNavigatorPositionItem.AccessibleName = "Position"
         Me.BindingNavigatorPositionItem.AutoSize = False
+        Me.BindingNavigatorPositionItem.Font = New System.Drawing.Font("Segoe UI", 9.0!)
         Me.BindingNavigatorPositionItem.Name = "BindingNavigatorPositionItem"
         Me.BindingNavigatorPositionItem.Size = New System.Drawing.Size(50, 23)
         Me.BindingNavigatorPositionItem.Text = "0"
@@ -244,6 +256,24 @@ Partial Class Form1
         Me.ToolStripButton1.Name = "ToolStripButton1"
         Me.ToolStripButton1.Size = New System.Drawing.Size(83, 22)
         Me.ToolStripButton1.Text = "Mata Kuliah..."
+        '
+        'ToolStripButton2
+        '
+        Me.ToolStripButton2.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text
+        Me.ToolStripButton2.Image = CType(resources.GetObject("ToolStripButton2.Image"), System.Drawing.Image)
+        Me.ToolStripButton2.ImageTransparentColor = System.Drawing.Color.Magenta
+        Me.ToolStripButton2.Name = "ToolStripButton2"
+        Me.ToolStripButton2.Size = New System.Drawing.Size(40, 22)
+        Me.ToolStripButton2.Text = "KRS..."
+        '
+        'ToolStripButton3
+        '
+        Me.ToolStripButton3.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text
+        Me.ToolStripButton3.Image = CType(resources.GetObject("ToolStripButton3.Image"), System.Drawing.Image)
+        Me.ToolStripButton3.ImageTransparentColor = System.Drawing.Color.Magenta
+        Me.ToolStripButton3.Name = "ToolStripButton3"
+        Me.ToolStripButton3.Size = New System.Drawing.Size(42, 22)
+        Me.ToolStripButton3.Text = "KHS..."
         '
         'NimTextBox
         '
@@ -305,15 +335,6 @@ Partial Class Form1
         Me.MahasiswaDataGridView.Size = New System.Drawing.Size(773, 189)
         Me.MahasiswaDataGridView.TabIndex = 11
         '
-        'ToolStripButton2
-        '
-        Me.ToolStripButton2.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text
-        Me.ToolStripButton2.Image = CType(resources.GetObject("ToolStripButton2.Image"), System.Drawing.Image)
-        Me.ToolStripButton2.ImageTransparentColor = System.Drawing.Color.Magenta
-        Me.ToolStripButton2.Name = "ToolStripButton2"
-        Me.ToolStripButton2.Size = New System.Drawing.Size(40, 22)
-        Me.ToolStripButton2.Text = "KRS..."
-        '
         'DataGridViewTextBoxColumn1
         '
         Me.DataGridViewTextBoxColumn1.DataPropertyName = "nim"
@@ -349,16 +370,6 @@ Partial Class Form1
         Me.DataGridViewTextBoxColumn5.Name = "DataGridViewTextBoxColumn5"
         Me.DataGridViewTextBoxColumn5.ReadOnly = True
         '
-        'MahasiswaBindingSource
-        '
-        Me.MahasiswaBindingSource.DataMember = "mahasiswa"
-        Me.MahasiswaBindingSource.DataSource = Me.AkademisDataSet
-        '
-        'AkademisDataSet
-        '
-        Me.AkademisDataSet.DataSetName = "akademisDataSet"
-        Me.AkademisDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
-        '
         'MahasiswaTableAdapter
         '
         Me.MahasiswaTableAdapter.ClearBeforeFill = True
@@ -388,19 +399,21 @@ Partial Class Form1
         '
         'NimToolStripTextBox
         '
+        Me.NimToolStripTextBox.Font = New System.Drawing.Font("Segoe UI", 9.0!)
         Me.NimToolStripTextBox.Name = "NimToolStripTextBox"
-        Me.NimToolStripTextBox.Size = New System.Drawing.Size(100, 23)
+        Me.NimToolStripTextBox.Size = New System.Drawing.Size(100, 25)
         '
         'NamaToolStripLabel
         '
         Me.NamaToolStripLabel.Name = "NamaToolStripLabel"
-        Me.NamaToolStripLabel.Size = New System.Drawing.Size(40, 15)
+        Me.NamaToolStripLabel.Size = New System.Drawing.Size(40, 22)
         Me.NamaToolStripLabel.Text = "nama:"
         '
         'NamaToolStripTextBox
         '
+        Me.NamaToolStripTextBox.Font = New System.Drawing.Font("Segoe UI", 9.0!)
         Me.NamaToolStripTextBox.Name = "NamaToolStripTextBox"
-        Me.NamaToolStripTextBox.Size = New System.Drawing.Size(100, 23)
+        Me.NamaToolStripTextBox.Size = New System.Drawing.Size(100, 25)
         '
         'FillByNimNamaToolStripButton
         '
@@ -409,14 +422,14 @@ Partial Class Form1
         Me.FillByNimNamaToolStripButton.Size = New System.Drawing.Size(32, 22)
         Me.FillByNimNamaToolStripButton.Text = "Cari"
         '
-        'ToolStripButton3
+        'ToolStripButton4
         '
-        Me.ToolStripButton3.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text
-        Me.ToolStripButton3.Image = CType(resources.GetObject("ToolStripButton3.Image"), System.Drawing.Image)
-        Me.ToolStripButton3.ImageTransparentColor = System.Drawing.Color.Magenta
-        Me.ToolStripButton3.Name = "ToolStripButton3"
-        Me.ToolStripButton3.Size = New System.Drawing.Size(42, 22)
-        Me.ToolStripButton3.Text = "KHS..."
+        Me.ToolStripButton4.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text
+        Me.ToolStripButton4.Image = CType(resources.GetObject("ToolStripButton4.Image"), System.Drawing.Image)
+        Me.ToolStripButton4.ImageTransparentColor = System.Drawing.Color.Magenta
+        Me.ToolStripButton4.Name = "ToolStripButton4"
+        Me.ToolStripButton4.Size = New System.Drawing.Size(37, 22)
+        Me.ToolStripButton4.Text = "IPK..."
         '
         'Form1
         '
@@ -441,10 +454,10 @@ Partial Class Form1
         CType(Me.MahasiswaBindingNavigator, System.ComponentModel.ISupportInitialize).EndInit()
         Me.MahasiswaBindingNavigator.ResumeLayout(False)
         Me.MahasiswaBindingNavigator.PerformLayout()
-        CType(Me.AngkatanNumericUpDown, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.MahasiswaDataGridView, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.MahasiswaBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.AkademisDataSet, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.AngkatanNumericUpDown, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.MahasiswaDataGridView, System.ComponentModel.ISupportInitialize).EndInit()
         Me.FillByNimNamaToolStrip.ResumeLayout(False)
         Me.FillByNimNamaToolStrip.PerformLayout()
         Me.ResumeLayout(False)
@@ -489,4 +502,5 @@ Partial Class Form1
     Friend WithEvents NamaToolStripTextBox As ToolStripTextBox
     Friend WithEvents FillByNimNamaToolStripButton As ToolStripButton
     Friend WithEvents ToolStripButton3 As ToolStripButton
+    Friend WithEvents ToolStripButton4 As ToolStripButton
 End Class
