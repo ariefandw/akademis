@@ -23,28 +23,41 @@ Partial Class KHS
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
-        Dim ReportDataSource4 As Microsoft.Reporting.WinForms.ReportDataSource = New Microsoft.Reporting.WinForms.ReportDataSource()
-        Me.ReportViewer1 = New Microsoft.Reporting.WinForms.ReportViewer()
-        Me.akademisDataSet = New WindowsApp1.akademisDataSet()
+        Dim ReportDataSource3 As Microsoft.Reporting.WinForms.ReportDataSource = New Microsoft.Reporting.WinForms.ReportDataSource()
         Me.khsBindingSource = New System.Windows.Forms.BindingSource(Me.components)
+        Me.akademisDataSet = New WindowsApp1.akademisDataSet()
+        Me.ReportViewer1 = New Microsoft.Reporting.WinForms.ReportViewer()
         Me.khsTableAdapter = New WindowsApp1.akademisDataSetTableAdapters.khsTableAdapter()
-        Me.TextBox1 = New System.Windows.Forms.TextBox()
         Me.ComboBox1 = New System.Windows.Forms.ComboBox()
         Me.NumericUpDown1 = New System.Windows.Forms.NumericUpDown()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.Label2 = New System.Windows.Forms.Label()
         Me.Label3 = New System.Windows.Forms.Label()
         Me.Button1 = New System.Windows.Forms.Button()
-        CType(Me.akademisDataSet, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.ComboBox2 = New System.Windows.Forms.ComboBox()
+        Me.MahasiswaBindingSource = New System.Windows.Forms.BindingSource(Me.components)
+        Me.MahasiswaTableAdapter = New WindowsApp1.akademisDataSetTableAdapters.mahasiswaTableAdapter()
         CType(Me.khsBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.akademisDataSet, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.NumericUpDown1, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.MahasiswaBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
+        '
+        'khsBindingSource
+        '
+        Me.khsBindingSource.DataMember = "khs"
+        Me.khsBindingSource.DataSource = Me.akademisDataSet
+        '
+        'akademisDataSet
+        '
+        Me.akademisDataSet.DataSetName = "akademisDataSet"
+        Me.akademisDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
         '
         'ReportViewer1
         '
-        ReportDataSource4.Name = "DataSetKHS"
-        ReportDataSource4.Value = Me.khsBindingSource
-        Me.ReportViewer1.LocalReport.DataSources.Add(ReportDataSource4)
+        ReportDataSource3.Name = "DataSetKHS"
+        ReportDataSource3.Value = Me.khsBindingSource
+        Me.ReportViewer1.LocalReport.DataSources.Add(ReportDataSource3)
         Me.ReportViewer1.LocalReport.ReportEmbeddedResource = "WindowsApp1.KHS.rdlc"
         Me.ReportViewer1.Location = New System.Drawing.Point(12, 62)
         Me.ReportViewer1.Name = "ReportViewer1"
@@ -52,26 +65,9 @@ Partial Class KHS
         Me.ReportViewer1.Size = New System.Drawing.Size(776, 376)
         Me.ReportViewer1.TabIndex = 0
         '
-        'akademisDataSet
-        '
-        Me.akademisDataSet.DataSetName = "akademisDataSet"
-        Me.akademisDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
-        '
-        'khsBindingSource
-        '
-        Me.khsBindingSource.DataMember = "khs"
-        Me.khsBindingSource.DataSource = Me.akademisDataSet
-        '
         'khsTableAdapter
         '
         Me.khsTableAdapter.ClearBeforeFill = True
-        '
-        'TextBox1
-        '
-        Me.TextBox1.Location = New System.Drawing.Point(63, 13)
-        Me.TextBox1.Name = "TextBox1"
-        Me.TextBox1.Size = New System.Drawing.Size(100, 20)
-        Me.TextBox1.TabIndex = 1
         '
         'ComboBox1
         '
@@ -91,7 +87,7 @@ Partial Class KHS
         Me.NumericUpDown1.Name = "NumericUpDown1"
         Me.NumericUpDown1.Size = New System.Drawing.Size(120, 20)
         Me.NumericUpDown1.TabIndex = 3
-        Me.NumericUpDown1.Value = New Decimal(New Integer() {2000, 0, 0, 0})
+        Me.NumericUpDown1.Value = New Decimal(New Integer() {2021, 0, 0, 0})
         '
         'Label1
         '
@@ -129,24 +125,46 @@ Partial Class KHS
         Me.Button1.Text = "Cari"
         Me.Button1.UseVisualStyleBackColor = True
         '
+        'ComboBox2
+        '
+        Me.ComboBox2.DataBindings.Add(New System.Windows.Forms.Binding("SelectedValue", Me.khsBindingSource, "nim", True))
+        Me.ComboBox2.DataSource = Me.MahasiswaBindingSource
+        Me.ComboBox2.DisplayMember = "nama"
+        Me.ComboBox2.FormattingEnabled = True
+        Me.ComboBox2.Location = New System.Drawing.Point(63, 13)
+        Me.ComboBox2.Name = "ComboBox2"
+        Me.ComboBox2.Size = New System.Drawing.Size(121, 21)
+        Me.ComboBox2.TabIndex = 6
+        Me.ComboBox2.ValueMember = "nim"
+        '
+        'MahasiswaBindingSource
+        '
+        Me.MahasiswaBindingSource.DataMember = "mahasiswa"
+        Me.MahasiswaBindingSource.DataSource = Me.akademisDataSet
+        '
+        'MahasiswaTableAdapter
+        '
+        Me.MahasiswaTableAdapter.ClearBeforeFill = True
+        '
         'KHS
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(800, 450)
+        Me.Controls.Add(Me.ComboBox2)
         Me.Controls.Add(Me.Button1)
         Me.Controls.Add(Me.Label3)
         Me.Controls.Add(Me.Label2)
         Me.Controls.Add(Me.Label1)
         Me.Controls.Add(Me.NumericUpDown1)
         Me.Controls.Add(Me.ComboBox1)
-        Me.Controls.Add(Me.TextBox1)
         Me.Controls.Add(Me.ReportViewer1)
         Me.Name = "KHS"
         Me.Text = "KHS"
-        CType(Me.akademisDataSet, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.khsBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.akademisDataSet, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.NumericUpDown1, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.MahasiswaBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -156,11 +174,13 @@ Partial Class KHS
     Friend WithEvents khsBindingSource As BindingSource
     Friend WithEvents akademisDataSet As akademisDataSet
     Friend WithEvents khsTableAdapter As akademisDataSetTableAdapters.khsTableAdapter
-    Friend WithEvents TextBox1 As TextBox
     Friend WithEvents ComboBox1 As ComboBox
     Friend WithEvents NumericUpDown1 As NumericUpDown
     Friend WithEvents Label1 As Label
     Friend WithEvents Label2 As Label
     Friend WithEvents Label3 As Label
     Friend WithEvents Button1 As Button
+    Friend WithEvents ComboBox2 As ComboBox
+    Friend WithEvents MahasiswaBindingSource As BindingSource
+    Friend WithEvents MahasiswaTableAdapter As akademisDataSetTableAdapters.mahasiswaTableAdapter
 End Class
